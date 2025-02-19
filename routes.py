@@ -8,7 +8,7 @@ api = Blueprint('api', __name__)
 
 # Configure the upload folder and allowed extensions
 UPLOAD_FOLDER = 'images/ljk'
-ALLOWED_EXTENSIONS = {'jpg', 'jpeg'}
+ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
 
 # Make sure the destination folder exists
 if not os.path.exists(UPLOAD_FOLDER):

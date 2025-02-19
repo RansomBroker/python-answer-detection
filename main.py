@@ -3,7 +3,6 @@ from ultralytics import YOLO
 from transformers import TrOCRProcessor
 from transformers import VisionEncoderDecoderModel
 import time
-import json
 
 def detect_and_ocr(image_path):
     try:
