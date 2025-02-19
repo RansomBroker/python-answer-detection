@@ -12,7 +12,7 @@ def detect_and_ocr(image_path):
 
         # Load TrOCR
         processor_path = "microsoft/trocr-small-handwritten"
-        model_trocr_path = "microsoft/trocr-small-handwritten"
+        model_trocr_path = "model/fine-tuning-small-handwriting"
 
         processor = TrOCRProcessor.from_pretrained(processor_path)
         model_trocr = VisionEncoderDecoderModel.from_pretrained(model_trocr_path, local_files_only=False)
@@ -53,11 +53,11 @@ def detect_and_ocr(image_path):
         # Sort the texts from small to large
         all_texts.sort(key=len)
 
-        return json.dumps({"answers": all_texts, "error": None})
+        return {"answers": all_texts, "error": None}
 
     except Exception as e:
-        return json.dumps({"answers": [], "error": str(e)})
+        return {"answers": [], "error": str(e)}
 
 # Example usage
-result = detect_and_ocr('images/lembar jawaban manual.jpg')
-print(result)
+# result = detect_and_ocr('images/lembar jawaban manual.jpg')
+# print(result)
